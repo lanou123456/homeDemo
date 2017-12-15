@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Person> 
+  <data name="1"> 
+    <username>1</username>  
+    <password>1</password> 
+  </data>  
+  <data name="1"> 
+    <username>1</username>  
+    <password>1</password> 
+  </data>  
+  <data name="naen"> 
+    <username>qwe</username>  
+    <password>qweQwe123</password> 
+  </data>  
+  <data name="qwe"> 
+    <username>13797990585</username>  
+    <password>qweQWE123123</password> 
+  </data>  
+  <data name="qwe"> 
+    <username>13797990585</username>  
+    <password>qwe</password> 
+  </data>  
+  <data name="qwe">
+    <username>2582882610@qq.com</username>
+    <password>qwr</password>
+  </data>
+</Person>
