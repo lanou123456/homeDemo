@@ -1,0 +1,17 @@
+create table  user(id int primary key  auto_increment,name varchar(50),age int ,city varchar(50));    用户数据
+
+create table  btype(id int primary key auto_increment ,name varchar(50));				书籍类型数据
+
+
+create table  book(id int primary  key auto_increment ,name varchar(50),author varchar(50),btid int,书籍类型id）;     书籍数据
+书籍类型id===constraint fk_id foreign key(btid) references  btype(id)
+
+
+create table  comment(id int primary key auto_increment,content varchar(50）,bid int,所评论书id，uid int,付出评论用户的id，time varchar(50)）；   评论数据
+评论书id ===constraint fk_id foreign key(bid) references book(id)
+评论用户的id ===constraint fk_id foreign key (uid) references user(id);
+
+
+create table  Collection(ucid int,用户id，bcid int,书籍id）；   收藏数据
+用户id===constraint fk_ucid foreign key (ucid) references user(id);
+书籍id===constraint fk_bcid foreign key（bcid） references book(id);
