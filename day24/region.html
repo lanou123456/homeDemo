@@ -69,11 +69,13 @@
                 </div>
             <div>
                 <label for="user" style="font-size: 20px">邮箱地址</label>
-                <input type="text"  placeholder="请输入用户名" id="user" class="user-input">
+                <input type="text"  placeholder="请输入用户名" id="user" class="user-input" onfocus="onFocusName(this)" onblur="onBlurName(this)" >
+                <span id="promptName" style="color: red ;visibility: hidden" >用户名必须是邮箱</span>
             </div>
             <div>
                 <label for="password" style="font-size: 20px">登陆密码</label>
-                <input type="text" placeholder="请输入密码" id="password" class="user-input">
+                <input type="text" placeholder="请输入密码" id="password" class="user-input" onfocus="onFocusPasswd(this)" onblur="onBlurPasswd(this)">
+                <span id="promptPasswd" style="color: red ;visibility: hidden" >密码最少为六位数</span>
             </div>
             <div>
                 <input type="checkbox" id="xieyi">
@@ -81,7 +83,7 @@
             </div>
 
             <div style="padding-top: 30px">
-                <input type="submit" class="region-button" value="下一步">
+                <input type="submit" class="region-button" value="下一步" onclick="inpClicked(this)">
             </div>
 
         </div>
@@ -92,4 +94,35 @@
 </div>
 
 </body>
+<script type="text/javascript">
+    function onFocusPasswd(elep1) {
+var text = document.getElementById("promptPasswd")
+
+                text.style.visibility="visible";
+    }
+function onBlurPasswd(elep) {
+var text = document.getElementById("promptPasswd")
+
+                text.style.visibility="hidden";
+    }
+
+function onFocusName(elen) {
+var text = document.getElementById("promptName")
+
+                text.style.visibility="visible";
+    }
+function onBlurName(elen) {
+var text = document.getElementById("promptName")
+
+                text.style.visibility="hidden";
+    }
+    
+    function inpClicked(refer) {
+
+refer.style.background="red";
+    }
+
+
+
+</script>
 </html>

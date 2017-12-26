@@ -77,11 +77,11 @@ background-color: #ffffff;
     <div class="text-2">
         <p style="text-align: center ; font-size: 30px">网易登陆</p>
             <div style="text-align: center">
-        <input type="text"  placeholder="用户名"  style="width: 300px;height: 30px">
+        <input type="text"  placeholder="用户名"  style="width: 300px;height: 30px" onfocus="onFocus(this)" onblur="onBlur(this)">
             </div>
             <div style="text-align: center ; padding-top: 50px">
 
-                <input type="text"  placeholder="登陆密码"  style="width: 300px;height: 30px ">
+                <input type="text"  placeholder="登陆密码"  style="width: 300px;height: 30px " onfocus="onFocus(this)" onblur="onBlur(this)">
             </div>
         <div style="height: 20px"></div>
             <div style="text-align: center">
@@ -91,9 +91,9 @@ background-color: #ffffff;
                 <label for="denglu"> 15天免登录</label>
                 <div style="height: 50px"></div>
             </div>
-           <div style="position: relative; text-align: center">
+           <div style="position: relative; text-align: center ">
 
-            <input type="submit"  value="登陆" class="loing-button">
+            <input type="submit"  value="登陆" class="loing-button"  onclick="inpClicked(this)">
 
             </div>
     </div>
@@ -102,4 +102,23 @@ background-color: #ffffff;
 
 
 </body>
+<script type="text/javascript">
+    function onFocus(input1) {
+
+        input1.style.border="2px solid red";
+        input1.style.fontSize="20px"
+
+    }
+    function onBlur(input2) {
+
+        input2.style.border="1px solid #d9d9d9 ";
+        input2.style.fontSize="16px";
+
+    }
+    function inpClicked(refer) {
+
+        refer.style.background="red";
+    }
+
+</script>
 </html>
