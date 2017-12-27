@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+
+
+
+</body>
+
+<script type="text/javascript">
+    $.get(" http://api.k780.com/?app=weather.today&weaid=1&appkey=29836&sign=4fe58a60443a900a251f8b05763d4622&format=json",
+
+        function (data,status) {
+
+
+        if (status=="success") {
+
+            var jsonData = $.parseJSON(data);
+            $.each(jsonData,function (index, obj) {
+
+              $('p').text( obj['days']+ obj['week']+
+                  obj['citynm']+obj['weather']+obj['weather_curr'] ) ;
+
+            })
+
+        }
+
+        })
+
+</script>
+
+</html>

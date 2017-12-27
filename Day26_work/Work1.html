@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        .div1{
+            width: 705px;
+            height: 1000px;
+        }
+        .div2{
+            width: 500px;
+            height: 800px;
+            float: left;
+
+        }
+        .div3{
+            width: 500px;
+            height: 60px;
+            background-color: blue;
+            text-align: center;
+            font-size: 20px;
+
+
+        }
+        .div4{
+            width: 200px;
+            height: 400px;
+            border: solid 2px black;
+            float: right;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div  class="div1">
+    <div class="div2">
+        <button class="div3" id="btn" onclick="btnClicked(this)">点击设置样式</button>
+        <div id="test" style="width: 50px;height: 50px; background-color: black"></div>
+    </div>
+     <div class="div4" id="right" style="visibility: hidden" >
+         <p style="text-align: center" >选择背景</p>
+         <div id="btns">
+             <button style="background-color: red" onclick="btnClickedColor(this)">红色</button>
+             <button style="background-color: yellow" onclick="btnClickedColor2(this)">黄色</button>
+             <button style="background-color: blue" onclick="btnClickedColor3(this)">蓝色</button>
+         </div>
+         <p>选择宽度</p>
+         <div id="btns2">
+             <button style="background-color: dimgrey" onclick="btnClicked4(this)">100</button>
+             <button style="background-color: dimgrey" onclick="btnClicked5(this)">200</button>
+             <button style="background-color: dimgrey" onclick="btnClicked6(this)">300</button>
+         </div>
+         <p>选择高度</p>
+         <div id="btns3">
+             <button style="background-color: dimgrey" onclick="btnClicked7(this)">100</button>
+             <button style="background-color: dimgrey" onclick="btnClicked8(this)">200</button>
+             <button style="background-color: dimgrey" onclick="btnClicked9(this)">300</button>
+         </div>
+             <div>
+                 <button onclick="btnClicked10(this)">恢复</button>
+                 <button onclick="btnClicked2(this)">确定</button>
+             </div>
+         </div>
+
+     </div>
+
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    function btnClicked(ele) {
+        var right = document.getElementById("right");
+            right.style.visibility="visible";
+    }
+    function btnClicked2(ele) {
+        var right = document.getElementById("right");
+            right.style.visibility="hidden";
+    }
+
+    function btnClickedColor(ele) {
+        var test = document.getElementById("test");
+        test.style.background="red";
+
+    }
+    function btnClickedColor2(ele) {
+        var test = document.getElementById("test");
+        test.style.background="yellow";
+
+    }
+    function btnClickedColor3(ele) {
+        var test = document.getElementById("test");
+        test.style.background="blue";
+
+    }
+    function btnClicked4(ele) {
+        var test = document.getElementById("test");
+        test.style.width="100px";
+
+    }
+    function btnClicked5(ele) {
+        var test = document.getElementById("test");
+        test.style.width="200px";
+
+    }
+    function btnClicked6(ele) {
+        var test = document.getElementById("test");
+        test.style.width="300px";
+
+    }
+    function btnClicked7(ele) {
+        var test = document.getElementById("test");
+        test.style.height="100px";
+
+    }
+    function btnClicked8(ele) {
+        var test = document.getElementById("test");
+        test.style.height="200px";
+
+    }
+    function btnClicked9(ele) {
+        var test = document.getElementById("test");
+        test.style.height="300px";
+
+    }
+    function btnClicked10(ele) {
+        var test = document.getElementById("test");
+        test.style.height="50px";
+        test.style.width="50px";
+        test.style.background="black";
+    }
+
+
+</script>
+<script type="text/javascript">
+$('#btns>button').css({
+    "width":"50px",
+    "height":"40px"
+})
+$('#btns2>button').css({
+    "width":"50px",
+    "height":"40px"
+})
+$('#btns3>button').css({
+    "width":"50px",
+    "height":"40px"
+})
+
+
+</script>
+
+</html>
