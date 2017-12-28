@@ -15,12 +15,10 @@
 </body>
 
 <script type="text/javascript">
-    $.getJSON({
-            url : "http://api.k780.com/?app=weather.today&weaid=wuhan&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&jsoncallback=?",
-            dataType : "jsonp",
-            type:"Post",
-            jsonpCallback: "jsonpCallback"},
-        function (data,status) {
+    $.getJSON(
+             "http://api.k780.com/?app=weather.today&weaid=wuhan&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&jsoncallback=?"
+          ,
+        function (data) {
             $.each(data,function (index, obj) {
 
                 $('p').text( obj['days']+ obj['week']+
