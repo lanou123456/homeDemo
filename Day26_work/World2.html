@@ -8,10 +8,6 @@
 <body>
 <div>
     <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
 </div>
 
 
@@ -19,22 +15,18 @@
 </body>
 
 <script type="text/javascript">
-    $.get(" http://api.k780.com/?app=weather.today&weaid=1&appkey=29836&sign=4fe58a60443a900a251f8b05763d4622&format=json",
-
+    $.getJSON({
+            url : "http://api.k780.com/?app=weather.today&weaid=wuhan&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json&jsoncallback=?",
+            dataType : "jsonp",
+            type:"Post",
+            jsonpCallback: "jsonpCallback"},
         function (data,status) {
+            $.each(data,function (index, obj) {
 
-
-        if (status=="success") {
-
-            var jsonData = $.parseJSON(data);
-            $.each(jsonData,function (index, obj) {
-
-              $('p').text( obj['days']+ obj['week']+
-                  obj['citynm']+obj['weather']+obj['weather_curr'] ) ;
+                $('p').text( obj['days']+ obj['week']+
+                    obj['citynm']+obj['weather']+obj['weather_curr'] ) ;
 
             })
-
-        }
 
         })
 
