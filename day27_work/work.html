@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .div{
+        width: 400px;
+        height:40px;
+        text-align: center;
+        padding-top:15px;
+        margin-top:10px;
+
+
+        }
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<div style="background-color: #92bbde  " id="div">
+ <button id="add">添加</button>
+ <button id="delete">删除</button>
+ <button id="xy0">小于0</button>
+ <button id="dy0">大于0</button>
+ <button id="refresh">刷新</button>
+ <button id="all">显示全部</button>
+</div>
+<div id="div2">
+
+</div>
+
+
+
+
+</body>
+<script type="text/javascript">
+    function color() {
+        return    ('#'+('00000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6));
+
+    };
+    function number() {
+     var num=   parseInt(Math.random()*(50-(-50)+1)+(-50) ) ;
+         return num;
+    };
+
+
+    $('#add').click(function () {
+   $('#div2').append($('<div>').attr({
+       "class":"div",
+   }).css({
+       "backgroundColor": color()
+   }).text(
+number()
+   ));
+});
+
+   $('#div').css({
+       "width":" 400px",
+       "height":" 40px",
+       "textAlign": "center",
+       "paddingTop":"15px",
+       "backgroundColor":" #92bbde "
+
+   })
+    $('#delete').click(function (){
+    $('#div2>div:last-child').animate({
+        "marginLeft": "400px"
+    },500,function () {
+        $('#div2>div:last-child').remove();
+        });
+    });
+
+
+$('#xy0').click(function () {
+        var text = $('#div2').find("div");
+     for(var i=0;i<text.length;i++){
+         if ($(text[i]).text()>0){
+             $(text[i]).hide();
+            }else {
+             $(text[i]).show();
+         }
+        }
+    });
+
+
+    $('#dy0').click(function () {
+        var text = $('#div2').find("div");
+     for(var i=0;i<text.length;i++){
+         if ($(text[i]).text()<0){
+             $(text[i]).hide();
+            }else {
+             $(text[i]).show();
+         }
+        }
+    });
+
+
+    $('#refresh').click(function () {
+
+    var find = $('#div2').find('div');
+    for(var i=0;i<find.length;i++){
+        $(find[i]).css({
+            "backgroundColor":color()
+        }).text(number());
+    }
+    });
+
+    $('#all').click(function () {
+        var text = $('#div2').find("div");
+        for(var i=0;i<text.length;i++){
+            $(text[i]).show();
+        }
+
+    })
+
+
+</script>
+</html>
