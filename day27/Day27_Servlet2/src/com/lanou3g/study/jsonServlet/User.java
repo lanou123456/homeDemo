@@ -1,4 +1,4 @@
-package com.lanou3g.study;
+package com.lanou3g.study.jsonServlet;
 
 public class User {
     private  String uname;

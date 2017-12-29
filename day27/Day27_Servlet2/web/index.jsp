@@ -12,15 +12,7 @@
   </head>
   <body>
 
-  <%--<form action="hs" method="post">--%>
-    <%--<label for="uname">用户名：</label>--%>
-    <%--<input type="text" id="uname" name="uname">--%>
-    <%--<label for="gender">性别：</label>--%>
-    <%--<input type="text"  id="gender" name="gender">--%>
-
-    <%--<input type="submit">--%>
-
-  <%--</form>--%>
+  <a href="前端访问2.html">cccc</a>
 <a href="前段访问.html">ddddd</a>
   </body>
 </html>

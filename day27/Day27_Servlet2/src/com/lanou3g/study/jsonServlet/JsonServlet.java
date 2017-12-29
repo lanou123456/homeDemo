@@ -1,5 +1,7 @@
-package com.lanou3g.study;
+package com.lanou3g.study.jsonServlet;
 
+import com.lanou3g.study.util.Query;
+import com.lanou3g.study.util.JdbcUtil;
 import net.sf.json.JSONArray;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
@@ -9,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -31,18 +32,7 @@ public class JsonServlet extends HttpServlet {
 //        //使用json-lib包中的工具类，将集合users转换成JSON数据
 //        JSONArray jsonArray =JSONArray.fromObject(list);
 //        resp.getWriter().write(jsonArray.toString());
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Connection con = null;
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/querymany", "root", "123");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        Connection con = JdbcUtil.getConnection();
 
         try {
             List<User> query = new Query().query(con, "select * from hw_user ",
@@ -50,7 +40,7 @@ public class JsonServlet extends HttpServlet {
             JSONArray jsonArray =JSONArray.fromObject(query);
                     resp.getWriter().write(jsonArray.toString());
 
-
+con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

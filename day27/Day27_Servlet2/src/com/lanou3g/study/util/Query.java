@@ -1,4 +1,4 @@
-package com.lanou3g.study;
+package com.lanou3g.study.util;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
@@ -14,6 +14,12 @@ public class Query extends QueryRunner {
         T t = super.query(conn, sql, rsh);
 
 
+        return t;
+    }
+
+    @Override
+    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rsh, Object... params) throws SQLException {
+        T t = super.query(conn, sql, rsh,params);
         return t;
     }
 }
