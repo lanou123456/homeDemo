@@ -1,0 +1,113 @@
+js:
+使用JS操作HTML
+ window.onload= function () {}  html文档加载完毕时，会执行这个function这也是回调函数   DOM     :DOcument Object Model  文档对象模型
+show.innerText="<span>hello js</span>";
+  show.innerHTML="<span>hello js</span>";
+innerText:以纯文本显示
+ innerHTML：会识别标签，并显示
+函数function
+声明一个function，只有被调用了才会执行
+传递是采纳数数量少于参数列表中参数总数
+那么，违背赋值的形参的值为undefined；     如果在调用时，传递是参数数量
+大于参数列表中参数总数，那么，多余的参数不会进入函数体中，不会有影响
+进入与移除事件
+监听器，事件源（this）   可以才onxxx等监听器中，通过this，改变当前属性    onmouseover 当鼠标进入时      onmouseout当鼠标移出时
+JS操作样式
+ function btnClicked() {
+ 第一步，找到id为song的标签
+ var  song = document.getElementById("song")
+第二步：更改颜色为红色
+song.style.color="red";
+    }
+数组
+定义一个数组
+var array = [1,2,"哈哈"];
+使用角标访问
+console.log(array[0]);
+循环，使用forEach方法遍历数组，该方法，接受一个回调函数
+说以我们定义了一个匿名方法，并且给该方法定义了两个参数，
+ 给浏览器解析到改代码，也就是forEach会自动帮我们调用传入的方法，
+ 并且第一个参数会传入
+数组的元素，第二个参数传入该元素对应的角标
+操作元素的显示和隐藏
+display !="none"    既不显示也不占位
+visibility="visibility"   只是让元素不在显示，但是元素依然占据位置
+添加和删除元素
+body[0].removeChild(divs[0]);  删除
+body[0].appendChild(h1);  添加
+获得焦点  失去焦点
+ onfocus:但获得焦点时
+ onblur:但失去焦点时
+document_write
+window.onload=function () {
+        document.write("确实是");
+    }
+定时功能
+etInterval(function () {
+每隔1000毫秒，就来执行一次回调函数
+count.innerText=(n++); },1000);
+numbers.pop();  pop删除数组的最后一个元素
+numbers.splice(state，count);   从哪开始，删几个
+加载完后执行
+$(document).ready(function () {
+ 当文档加载完成后执行
+ $(docuent)也属于选择器，我们刚刚已经看到了，$(this)
+这时我们就知道了，可以使用jq的选择器找到某个对象});
+ $(function () {
+ //也是文档加载完成后执行 });
+设置元素文本
+$('#btn').click(function () {
+设置元素文本
+$(this).text("点了我！！");
+获得元素文本
+var text = $(this).text(); })
+$：声明我要用jq的语法了     ‘div'’）：单引号里面是选择器
+双击事件与进入进出
+$('#btn').dblclick(function () {});   双击事件
+ $('div').mouseenter(function () {}）；进入
+$('div')mouseleave(function () {}）；  出去
+enter与over的区别
+over是当鼠标进入整个区域时加，enter是把这个标签的子标签也算是一个进入事件
+获得一个Json数组
+$.each(jsonData,function (index,obj) {}）  
+第一个参数index：当前的元素的角标
+第二个参数obj：当前的元素      obj['name']得到该元素的name属性的值
+$.parseJSON(data);对得到的数据进行json解析
+JQ动画
+animate方法
+第一个参数：怎么通过更改样式来实现动画，
+第二个参数：多长时间完成，毫秒值
+第三个参数：动画完成后干什么，是一个回调函数
+操作元素属性
+$('div').attr({"class": "bigRed"}).attr("class")   通过attr方法给class属性赋值，没有赋值的表示的到class的值
+操作CSS样式
+$('div').css({"width":"200px","height":"200px","backgroundColor":"red"}
+ 通过css方法给div标签附加css样式
+添加和删除元素
+$('div').append("append添加的内容")
+ .before("before添加的内容")
+.after("after添加的内容")
+.append($('<p>').css({"height":"100px"}))  在div中添加p标签并给一个css样式
+ .after($('<div>'));
+append在div中添加      before在div前面加       after在div后面加    
+删除谁，就要先找到谁 $('p').remove();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
