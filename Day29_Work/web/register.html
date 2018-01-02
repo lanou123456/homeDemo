@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>region</title>
+    <style type="text/css">
+
+        .div{
+            width: 1900px;
+            height: 900px;
+        }
+        .div1{
+            width: 1900px;
+            height: 60px;
+        }
+
+        .navigation{
+            width: 300px;
+            height: 50px;
+            float: left;
+        }
+
+        .text{
+            width: 1900px;
+            height: 850px;
+            background-color: skyblue;
+        }
+        .text-1{
+            position: relative;
+            width: 1000px;
+            height: 700px;
+            background-color: white;
+           left: 400px;
+            top:90px;
+        }
+        .user-input{
+            margin: 20px;
+            width: 300px;
+            height: 40px;
+        }
+        .region-button{
+            border: none;
+            color: white;
+            font-size: 30px;
+            background-color: #1a7bff;
+            width: 300px;
+            height: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="div">
+    <div class="div1">
+        <div class="navigation ">
+         <span style="float: right ;font-size: 22px ;padding-left: 10px ; padding-top: 5px">账号注册</span>
+         <span style="float: right ;font-size: 30px">网易云</span>
+          <img src="img/导航.png"  style="float: right">
+        </div>
+    </div>
+    <div class="text">
+        <div class="text-1" style="text-align: center">
+                <div style="color: cornflowerblue; height: 50px ;padding-top: 50px">
+                    <div style="">
+                    <img src="img/邮箱.png">
+                    邮箱注册
+                    </div>
+                </div>
+
+            <form action="register" method="post">
+
+                <label for="user" style="font-size: 20px">邮箱地址</label>
+                <input type="text"  placeholder="请输入用户名" id="user"  name="username" class="user-input" onfocus="onFocusName(this)" onblur="onBlurName(this)" >
+                <span id="promptName" style="color: red ;visibility: hidden" >用户名必须是邮箱</span>
+                <br>
+
+                <label for="password" style="font-size: 20px">登陆密码</label>
+                <input type="text" placeholder="请输入密码" id="password"  name="password" class="user-input" onfocus="onFocusPasswd(this)" onblur="onBlurPasswd(this)">
+                <span id="promptPasswd" style="color: red ;visibility: hidden" >密码最少为六位数</span>
+
+                    <br>
+                <input type="checkbox" id="xieyi">
+                <label for="xieyi"> 同意并遵守 <span style="color: #1a7bff">《服务条款》</span></label>
+
+                <br>
+
+                <input type="submit" class="region-button" value="下一步" onclick="inpClicked(this)" style="padding-top: 30px">
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+<script type="text/javascript">
+    function onFocusPasswd(elep1) {
+var text = document.getElementById("promptPasswd")
+
+                text.style.visibility="visible";
+    }
+function onBlurPasswd(elep) {
+var text = document.getElementById("promptPasswd")
+
+                text.style.visibility="hidden";
+    }
+
+function onFocusName(elen) {
+var text = document.getElementById("promptName")
+
+                text.style.visibility="visible";
+    }
+function onBlurName(elen) {
+var text = document.getElementById("promptName")
+
+                text.style.visibility="hidden";
+    }
+    
+    function inpClicked(refer) {
+
+refer.style.background="red";
+    }
+
+
+
+</script>
+</html>

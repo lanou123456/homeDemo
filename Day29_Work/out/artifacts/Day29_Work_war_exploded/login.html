@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style type="text/css">
+        .div{
+            position:fixed;
+            width: 1888px;
+            height: 950px;
+        }
+        .div1{
+            width: 1900px;
+            height: 60px;
+        }
+        .navigation{
+            width: 300px;
+            height: 50px;
+            float: left;
+        }
+        .navigation-1{
+            width: 400px;
+            height: 40px;
+            float: right;
+        }
+
+        .text{
+            position: absolute;
+            height: 900px;
+            width: 1900px;
+            background-color: #d2e0eb;
+        }
+
+        .text-1{
+            position:relative;
+            left: 20%;
+            top:25%;
+
+        }
+        .text-2{
+            width: 400px;
+            height: 500px;
+background-color: #ffffff;
+            position: absolute;
+            left: 47%;
+            top:20%;
+
+        }
+        .loing-button{
+            color: white;
+            font-size: 30px;
+            background-color: #1a7bff;
+            border: none;
+           width: 300px;
+            height: 40px;
+        }
+
+
+    </style>
+</head>
+<body >
+<div class="div">
+    <div class="div1">
+        <div class="navigation ">
+            <span style="float: right ;font-size: 22px ;padding-left: 10px ; padding-top: 5px">登陆</span>
+            <span style="float: right ;font-size: 30px">网易云</span>
+            <img src="img/导航.png" style="float: right">
+        </div>
+        <div class="navigation-1">
+            <p id="myckock" style="float: left"></p>
+            <span style="color: skyblue ;font-size: 20px">网易云首页    |</span>
+            <span style="color: skyblue ; font-size: 20px">    帮助与文档</span>
+        </div>
+        <div></div>
+    </div>
+    <div class="text">
+        <img src="img/登陆图.png"  class="text-1" >
+    </div>
+    <div class="text-2">
+        <p style="text-align: center ; font-size: 30px">网易登陆</p>
+
+          <form action="login" method="post">
+        <input type="text"  placeholder="用户名"  style="width: 300px;height: 30px" onfocus="onFocus(this)" onblur="onBlur(this)" style="text-align: center" name="username">
+           <br>
+
+
+                <input type="text" style="text-align: center ; padding-top: 50px" placeholder="登陆密码"  style="width: 300px;height: 30px " onfocus="onFocus(this)" onblur="onBlur(this)" name="password">
+
+
+
+        <div style="height: 20px"></div>
+            <div style="text-align: center">
+                <input type="checkbox" id="tiaoyue" >
+                <label for="tiaoyue">同意并遵守 <a href="#" style="color: #1a7bff">《服务条款》</a></label>
+                <input type="checkbox" id="denglu">
+                <label for="denglu"> 15天免登录</label>
+                <div style="height: 50px"></div>
+            </div>
+
+<br>
+            <input type="submit"  value="登陆" class="loing-button"  onclick="inpClicked(this)"style="position: relative; text-align: center ">
+
+
+          </form>
+    </div>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+    function onFocus(input1) {
+
+        input1.style.border="2px solid red";
+        input1.style.fontSize="20px"
+
+    }
+    function onBlur(input2) {
+
+        input2.style.border="1px solid #d9d9d9 ";
+        input2.style.fontSize="16px";
+
+    }
+    function inpClicked(refer) {
+
+        refer.style.background="red";
+    }
+    function disptime() {
+        var today=new Date();
+        var hh=today.getHours();
+        var mm=today.getMinutes();
+        var ss=today.getSeconds();
+        document.getElementById("myckock").innerHTML=
+            "现在是："+hh+":"+mm+":"+ss;
+    }
+    setInterval(disptime,1000);
+
+</script>
+</html>
