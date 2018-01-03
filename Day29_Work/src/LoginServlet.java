@@ -1,34 +1,44 @@
-import Dao.Data;
-import Dao.User;
-import Dao.util.JdbcUtil;
+import dao.Data;
+import dao.User;
 import org.apache.commons.beanutils.BeanUtils;
 
-import javax.jws.WebService;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.SQLException;
 import java.util.Map;
 
 @WebServlet(name = "LoginServlet",urlPatterns = "/login")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-    Data data =new Data();
-        String query=null;
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        User user = new User();
+        Data data = new Data();
         try {
-             query= data.Query(username,password);
-        } catch (SQLException e) {
+            BeanUtils.populate(user,parameterMap);
+            User query = data.Query(user);
+            if ((query.getUsername()).equals(user.getUsername())){
+                        if ((query.getPassword()).equals(user.getPassword())){
+                            getServletContext().setAttribute("user",user);
+                            request.getRequestDispatcher("/index.jsp")
+                                    .forward(request,response);
+                            return;
+                        }else {
+                            System.out.println("密码错误！");
+                        }
+
+
+            }else {
+                System.out.println("用户名不存在！");
+            }
+
+response.sendRedirect("http://localhost:8080/login.html");
+
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
-        if (query !=null){
-            response.getWriter().write("success");
 
-        }else {
-            response.sendRedirect("http://localhost:8080/login.html");
-        }
 
     }
 

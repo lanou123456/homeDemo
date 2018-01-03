@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>region</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <style type="text/css">
 
         .div{
@@ -44,7 +45,8 @@
             font-size: 30px;
             background-color: #1a7bff;
             width: 300px;
-            height: 50px;
+            height: 70px;
+           padding-top: 20px
         }
 
 
@@ -68,7 +70,7 @@
                     </div>
                 </div>
 
-            <form action="register" method="post">
+            <form action="register" method="post" style="height: 700px">
 
                 <label for="user" style="font-size: 20px">邮箱地址</label>
                 <input type="text"  placeholder="请输入用户名" id="user"  name="username" class="user-input" onfocus="onFocusName(this)" onblur="onBlurName(this)" >
@@ -85,7 +87,7 @@
 
                 <br>
 
-                <input type="submit" class="region-button" value="下一步" onclick="inpClicked(this)" style="padding-top: 30px">
+                <input type="submit" class="region-button" value="下一步" onclick="inpClicked(this)"  >
 
             </form>
 
@@ -124,6 +126,12 @@ var text = document.getElementById("promptName")
 
 refer.style.background="red";
     }
+$.getJSON(
+    "http://localhost:8080/login",function (data) {
+
+    }
+)
+
 
 
 

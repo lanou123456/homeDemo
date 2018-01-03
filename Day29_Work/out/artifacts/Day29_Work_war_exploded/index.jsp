@@ -11,7 +11,26 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href="register.html">register</a>
-  <a href="login.html">login</a>
+  <form action="login" method="post">
+    用户名：<h1><span id="username"></span></h1>
+    密码：<h1><span id="password"></span></h1>
+
+
+  </form>
   </body>
+  <script src="js/jquery-3.2.1.min.js">
+
+    $.getJSON("http://localhost:8080/login",function (data,status) {
+
+        if (status=="success"){
+            $('#usernma').text(data["username"]);
+            $('#password').text(data["password"]);
+
+        }
+
+    })
+
+  </script>
+
+
 </html>
