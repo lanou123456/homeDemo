@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="day39" extends="struts-default">
+        <action name="register" class="user.web.UserAction" method="register">
+            <result name="register">register.jsp</result>
+        </action>
+        <action name="login" class="user.web.UserAction" method="">
+            <result name="register">register.jsp</result>
+        </action>
+    </package>
+</struts>
