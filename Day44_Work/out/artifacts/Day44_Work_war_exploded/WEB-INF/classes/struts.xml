@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+
+
+    <package name="user" extends="struts-default">
+
+<interceptors>
+    <interceptor name="status" class="util.LoginStatusinterceptor">
+        <param name="excludeMethods">login</param>
+    </interceptor>
+    <interceptor-stack name="itt">
+        <interceptor-ref name="defaultStack"/>
+        <interceptor-ref name="status"/>
+    </interceptor-stack>
+</interceptors>
+        <global-results>
+            <result name="fail">login.jsp</result>
+        </global-results>
+
+        <action name="user" class="web.UserAction" method="query">
+            <interceptor-ref name="itt"/>
+            <result name="success">user.jsp</result>
+        </action>
+
+        <action name="update" class="web.UpdateAction" method="update">
+            <interceptor-ref name="itt"/>
+            <result name="success">update.jsp</result>
+        </action>
+
+        <action name="update1" class="web.UpdateAction" method="update1">
+            <interceptor-ref name="itt"/>
+            <param name="id"/>
+            <result name="success" type="redirect">user.action</result>
+        </action>
+
+        <action name="login" class="web.Login" method="login">
+
+            <param name="uname"/>
+            <param name="password"/>
+            <result name="success">index.jsp</result>
+            <result name="login">login.jsp</result>
+        </action>
+    </package>
+</struts>
