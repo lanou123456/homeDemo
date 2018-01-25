@@ -1,0 +1,36 @@
+crmStaff----->crmPost---->crmdepartment
+
+
+一个部门有多个员工：一对多   department——staff
+
+
+一个职位对应多个人：一对多   post——staff
+crmStaff:
+private CrmPost post;
+<many-to-one name="post"
+lazy="false"
+class="com.lanou.crm.post.domain.CrmPost"
+column="postId"/>
+
+
+一个职位对应多个人：一对多   post——staff
+一个部门有多个职位：一对多   department——post
+crmPost:
+private Set<CrmStaff> staffSet
+<set name="staffSet" inverse="true">
+   <key column="postId"/>
+   <one-to-many class=""/>
+</set>
+private Crmdepartment ct;
+<mang-to-one name="ct" class="" column="depId">
+
+
+一个部门有多个职位：一对多   department——post
+crmdepartment:
+private Set<CrmPost> postSet
+<set name="postSet" inverse="true">
+ <key column="postId"/>
+ <one-to-many class="">
+</set>
+
+
